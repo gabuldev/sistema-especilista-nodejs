@@ -1,0 +1,46 @@
+
+
+define Alimento{
+    constructor: function(valor,tipocomida,restricoes,estilocomida,tempopreparo,escolhasabor){
+    this.valor = valor;
+    this.tipocomida = tipocomida;
+    this.restricoes = restricoes;
+    this.estilocomida = estilocomida;
+    this.tempopreparo = tempopreparo;
+    this.escolhasabor = escolhasabor;
+    }
+  
+
+}
+
+   
+
+    rule 'Brigadeiro' {
+        when {
+             v: Alimento v.valor == 5;
+             t: Alimento t.tipocomida == 'derivados';
+             r: Alimento r.restricoes == '';
+             e: Alimento e.estilocomida == 'pratica';
+             t: Alimento t.tempopreparo == 10;
+             e: Alimento e.escolhasabor == 'doce'; 
+        }
+        then{
+           console.log("Brigadeiro");
+        }
+    }
+
+     rule 'Churrasco' {
+        when {
+             v: Alimento v.valor <= 25;
+             t: Alimento t.tipocomida == 'carne';
+             r: Alimento r.restricoes == '';
+             e: Alimento e.estilocomida == 'pratica';
+             t: Alimento t.tempopreparo == 15;
+             e: Alimento e.escolhasabor == 'salgado'; 
+        }
+        then{
+           console.log("Churrasco");
+        }
+    }
+
+ 
